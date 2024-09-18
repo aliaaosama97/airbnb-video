@@ -3,6 +3,8 @@ import localFont from "next/font/local";
 import "./globals.css";
 import {Nunito} from "next/font/google"
 import NavBar from "./components/navbar/NavBar";
+import ClientOnly from "./components/ClientOnly";
+import Modal from "./components/modals/Modal";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -32,7 +34,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={font.className}>
-        <NavBar />
+        <ClientOnly>
+          <Modal/>
+          <NavBar />
+        </ClientOnly>
         {children}
       </body>
     </html>
