@@ -5,6 +5,8 @@ import {Nunito} from "next/font/google"
 import NavBar from "./components/navbar/NavBar";
 import ClientOnly from "./components/ClientOnly";
 import RegisterModal from "./components/modals/RegisterModal";
+import { Toaster } from "react-hot-toast";
+import ToasterProvider from "./providers/ToasterProvider";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -35,6 +37,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={font.className}>
         <ClientOnly>
+          <ToasterProvider/>
           <RegisterModal/>
           <NavBar />
         </ClientOnly>
